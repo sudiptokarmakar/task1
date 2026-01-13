@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
-    
-    <!-- Inherit and extend the export format section -->
     <t t-name="web.ExportDataDialog" t-inherit="web.ExportDataDialog" t-inherit-mode="extension">
         <xpath expr="//div[@class='o_export_format']" position="inside">
-            <!-- Add Google Sheets option after existing formats -->
-            <div class="radio form-check-inline ps-5">
-                <input 
-                    id="o_radio_google_sheets" 
-                    type="radio" 
-                    name="o_export_format_name" 
-                    value="google_sheets" 
-                    class="form-check-input" 
-                    t-on-change="setFormat" 
-                />
-                <label class="form-check-label ms-1" for="o_radio_google_sheets">
-                    Google Sheets
-                </label>
-            </div>
+            <t t-set="googleSheetsIndex" t-value="availableFormats.findIndex(f => f.tag === 'google_sheets')"/>
+            <t t-if="googleSheetsIndex >= 0">
+                <div class="radio form-check-inline ps-5">
+                    <input
+                        id="o_radio_google_sheets"
+                        type="radio"
+                        name="o_export_format_name"
+                        t-att-value="googleSheetsIndex"
+                        t-att-checked="state.selectedFormat === googleSheetsIndex ? 'checked' : undefined"
+                        class="form-check-input"
+                        t-on-click="() => this.state.selectedFormat = googleSheetsIndex"
+                    />
+                    <label class="form-check-label ms-1" for="o_radio_google_sheets">
+                        Google Sheets
+                    </label>
+                </div>
+            </t>
         </xpath>
     </t>
-
 </templates>
-

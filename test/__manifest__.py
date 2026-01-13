@@ -18,7 +18,7 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','web'],
+    'depends': ['base', 'web'],
 
     # always loaded
     'data': [
@@ -26,8 +26,12 @@ Long description of module's purpose
         # 'views/views.xml',
         # 'views/templates.xml',
     ],
-'assets': { 'web.assets_backend': [
-                'test/static/src/new.js',
-                'test/static/src/new.xml',]
-},
+    'assets': {'web.assets_backend': [
+        'test/static/src/new.js',
+        # 'test/static/src/new.xml',
+    ]
+    },
+    'external_dependencies': {
+        'python': ['gspread', 'oauth2client'],
+    },
 }

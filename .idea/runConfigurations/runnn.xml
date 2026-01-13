@@ -9,10 +9,11 @@
     </envs>
     <option name="SDK_HOME" value="" />
     <option name="SDK_NAME" value="Python 3.12" />
-    <option name="WORKING_DIRECTORY" value="D:\Odoo all versions\odoo-18.0\custom\new" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
+    <option name="RUN_TOOL" value="" />
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../source/odoo-bin" />
     <option name="PARAMETERS" value="-c odoo.conf -u test" />
     <option name="SHOW_COMMAND_LINE" value="false" />

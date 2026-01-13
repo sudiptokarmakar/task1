@@ -151,21 +151,21 @@ class GoogleSheetsExportController(http.Controller):
 
             _logger.info(f"Using worksheet: {worksheet.title}")
 
-            # ✅ CLEAR ALL EXISTING DATA FIRST
+            # # ✅ CLEAR ALL EXISTING DATA FIRST
             worksheet.clear()
             _logger.info("✅ Cleared all existing data from worksheet")
-
-            # ✅ Write new data starting from A1
+            #
+            # # ✅ Write new data starting from A1
             worksheet.update(export_data, 'A1', value_input_option='USER_ENTERED')
             _logger.info(f"✅ Wrote {len(export_data)} rows to worksheet")
 
             # Format header row (row 1)
-            header_range = f'A1:{chr(64 + len(headers))}1' if len(headers) <= 26 else f'A1:Z1'
-            worksheet.format(header_range, {
-                'textFormat': {'bold': True, 'fontSize': 11},
-                'backgroundColor': {'red': 0.2, 'green': 0.6, 'blue': 0.86},
-                'horizontalAlignment': 'CENTER'
-            })
+            # header_range = f'A1:{chr(64 + len(headers))}1' if len(headers) <= 26 else f'A1:Z1'
+            # worksheet.format(header_range, {
+            #     'textFormat': {'bold': True, 'fontSize': 11},
+            #     'backgroundColor': {'red': 0.2, 'green': 0.6, 'blue': 0.86},
+            #     'horizontalAlignment': 'CENTER'
+            # })
 
             # Freeze header row
             worksheet.freeze(rows=1)
